@@ -39,7 +39,7 @@ $(function() {
 
     setTimeout(function (){
         showPreloaderTextInfo();
-    },1200)
+    },1000)
 
 
     $("[data-scroll]").on('click', function (event) {
