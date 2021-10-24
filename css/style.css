@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 300;
   text-align: left;
 }
@@ -290,8 +290,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro__title {
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 46px;
+  font-weight: 300;
   margin-bottom: 40px;
 }
 
@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro__text {
-  padding-right: 70px;
+  padding-right: 44px;
   line-height: 190%;
 }
 
@@ -368,7 +368,7 @@ h1, h2, h3, h4, h5, h6 {
   .intro__text {
     text-align: center;
     padding: 0 35px;
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .intro__item:last-child .intro__text {
@@ -462,6 +462,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .preloaderText_info {
     font-size: 16px;
+  }
+
+  .intro__text {
+    font-size: 20px;
   }
 }
 @media (max-width: 400px) {
