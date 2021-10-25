@@ -49,7 +49,7 @@ $(function() {
     const popup = $('.js-popup');
     const form = document.getElementById('form');
     const username = document.getElementById('username');
-    const phone = document.getElementById('phone');
+    const mail = document.getElementById('phone');
 
 
     function closeModal(close,object) {
@@ -67,8 +67,9 @@ $(function() {
         })
     }
 
-$('.modal-btn').click(function (){
-    modalOverlay.addClass('active')
+$('.toForm').click(function (e){
+    e.preventDefault();
+    modalOverlay.addClass('active');
 })
 
 
@@ -87,7 +88,7 @@ $('.modal-btn').click(function (){
         let msg = $('#form').serialize();
         //    get values from inputs
         const usernameValue = username.value.trim();
-        const phoneValue = phone.value.trim();
+        const mailValue = phone.value.trim();
 
         let error = false;
 
@@ -104,9 +105,6 @@ $('.modal-btn').click(function (){
             setErrorFor(phone, 'Введите ваш номер телефона');
             error = true;
 
-        } else if(!validatePhone(phoneValue)){
-            setErrorFor(phone, 'Неккоректный ввод номера телефона');
-            error = true;
         }
         else{
             setSuccessFor(phone);
@@ -145,9 +143,6 @@ $('.modal-btn').click(function (){
         formControl.classList.remove('error')
     }
 
-    function validatePhone(phone){
-        let regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-        return regex.test(phone);
-    }
+
 
 });

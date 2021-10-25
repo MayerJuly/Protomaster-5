@@ -3,6 +3,7 @@ document.body.onload= function() {
     let preload = document.getElementById('pagePreloader')
     setTimeout(function () {
         if (!preload.classList.contains('done')){
+
             preload.classList.add('done');
             const animItems = document.querySelectorAll('._anim')
 
@@ -40,7 +41,7 @@ document.body.onload= function() {
 
                 setTimeout(() => {
                     animOnScroll()
-                }, 200)
+                }, 1600)
 
             }
         }

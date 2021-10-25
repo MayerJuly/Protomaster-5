@@ -132,13 +132,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .pagePreloader.done .preloaderText.active {
   transition: transform 0.8s, opacity 1s;
-  transform: translateY(20px);
   opacity: 0;
 }
 
 .pagePreloader.done .preloaderText_info {
   transition: transform 0.8s, opacity 0.5s;
-  transform: translateY(20px);
   opacity: 0;
 }
 
@@ -177,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
 .preloaderText_info {
   opacity: 0;
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 500;
   color: #F24C21;
   transition: transform 1s;
@@ -242,12 +240,12 @@ h1, h2, h3, h4, h5, h6 {
 .header__contacts a {
   font-family: inherit;
   font-weight: 300;
-  font-size: calc(16px + 16 * ((100vw - 320px) / 1600));
+  font-size: calc(16px + 15 * ((100vw - 320px) / 1600));
   color: black;
   transition: 0.2s;
 }
 
-.header__contacts a:hover {
+.header__contacts .header__mail:hover {
   color: #F24C21;
 }
 
@@ -264,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 300;
   text-align: left;
 }
@@ -272,7 +270,6 @@ h1, h2, h3, h4, h5, h6 {
 .intro__item {
   flex-basis: 30%;
   transition: opacity 0.8s 0.6s, transform 0.8s 0.6s;
-  transform: translateY(30px);
   opacity: 0;
 }
 
@@ -285,12 +282,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro__wrapper._active .intro__item {
-  transform: translateY(0);
   opacity: 1;
 }
 
 .intro__title {
-  font-size: 46px;
+  font-size: 45px;
   font-weight: 300;
   margin-bottom: 40px;
 }
@@ -299,16 +295,6 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   align-items: center;
   position: relative;
-}
-
-.intro__title li::before {
-  content: "•";
-  font-weight: 400;
-  display: inline-block;
-  width: 20px;
-  position: absolute;
-  top: 0;
-  left: -25px;
 }
 
 .intro__text {
@@ -346,7 +332,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .popup {
   width: 500px;
-  height: 450px;
+  height: 650px;
   max-width: 100%;
   max-height: 100%;
   padding: 30px 15px;
@@ -354,7 +340,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: center;
   position: relative;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: auto;
 }
 
@@ -374,7 +360,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .popup__content-title {
   text-align: center;
-  font-size: 32px;
+  font-size: 30px;
   letter-spacing: 2px;
   font-weight: 300;
   color: #000;
@@ -524,19 +510,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 0;
   }
 }
-@media (max-width: 1318px) {
-  .intro__item li::before {
-    position: relative;
-    left: 0;
-  }
-}
 @media (max-width: 1200px) {
   .header__contacts {
     flex-basis: 450px;
   }
 
   .intro__title {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   .intro__text {
@@ -569,30 +549,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 35px;
   }
 
-  .intro__item li:before {
-    position: absolute;
-    left: -25px;
-  }
-}
-@media (max-width: 930px) {
-  .header__contacts {
-    flex-basis: 380px;
-  }
-
-  .intro__text {
-    padding: 0;
-  }
-}
-@media (max-width: 850px) {
-  .header__contacts {
-    flex-basis: 350px;
-    padding-top: 0;
-  }
-
-  .header__content {
-    align-items: center;
-  }
-
   .intro__wrapper {
     flex-direction: column;
   }
@@ -623,6 +579,25 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
   }
 }
+@media (max-width: 930px) {
+  .header__contacts {
+    flex-basis: 380px;
+  }
+
+  .intro__text {
+    padding: 0;
+  }
+}
+@media (max-width: 850px) {
+  .header__contacts {
+    flex-basis: 350px;
+    padding-top: 0;
+  }
+
+  .header__content {
+    align-items: center;
+  }
+}
 @media (max-width: 790px) {
   .header__contacts a {
     font-size: 18px;
@@ -647,15 +622,16 @@ h1, h2, h3, h4, h5, h6 {
   .preloaderText_info {
     font-size: 20px;
   }
+
+  .form__control input,
+.form__control textarea {
+    border-width: 1px;
+  }
 }
 @media (max-width: 460px) {
   .intro__item__content {
     width: 100%;
     margin: 0 auto;
-  }
-
-  .intro__item li::before {
-    display: none;
   }
 
   .preloaderText {

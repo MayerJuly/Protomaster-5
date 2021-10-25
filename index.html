@@ -63,9 +63,13 @@
           <small>Error Message</small>
         </div>
         <div class="form__control">
-          <label for="phone">Номер телефона</label>
-          <input type="text" placeholder="Ваш номер телефона" id="phone" name="phone">
+          <label for="mail">Адрес электронной почты</label>
+          <input type="text" placeholder="Ваш адрес электронной почты" id="mail" name="mail">
           <small>Error Message</small>
+        </div>
+        <div class="form__control">
+          <label for="comment">Опишите Вашу задачу</label>
+          <textarea rows="3" placeholder="Опишите Вашу задачу" id="comment" name="comment"></textarea>
         </div>
         <button class="submit" type="submit">отправить</button>
       </form>
@@ -78,10 +82,9 @@
 
 <!--Modal button-->
 
-<button class="modal-btn btn-pc _anim _anim-no-hide">Оставить Заявку</button>
-<button class="modal-btn btn-mobile _anim _anim-no-hide"><svg class="iconModal"><use xlink:href="#modalBtn"></use></svg></button>
+<button class="modal-btn toForm btn-mobile _anim _anim-no-hide"><svg class="iconModal"><use xlink:href="#modalBtn"></use></svg></button>
 
-
+<!--HEADER -->
   <div class="wrapper">
     <header class="header">
       <div class="container">
@@ -95,7 +98,7 @@
           </div>
           <div class="header__contacts _anim _anim-no-hide">
               <a class="header__phone" href="tel:+79001356600">+7 (900) 135-66-00</a>
-              <a class="header__mail" href="mailto:mail@protomaster.ru">mail@protomaster.ru</a>
+              <a class="header__mail toForm" href="#">mail@protomaster.ru</a>
           </div>
         </div>
       </div>
