@@ -60,9 +60,10 @@ $(function() {
             for(let j=0;j<3;j++){
                 if(mainList[j].classList.contains('hidden')) mainList[j].classList.remove('hidden');
             }
-
+            mainList[0].classList.add('hidden')
             n=0;
-            setTimeout(function(){mainList[n].classList.add('opened');},500)
+            setTimeout(function(){mainList[n].classList.add('opened');
+                mainList[0].classList.remove('hidden')},500)
             $(".button__down").fadeIn();
         }
 
