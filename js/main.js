@@ -1,4 +1,5 @@
 $(function() {
+    $(".footer").fadeOut()
     $('.preloader__content').addClass('active');
     setTimeout(function (){
         $('.preloaderText').addClass('active');
@@ -43,11 +44,30 @@ $(function() {
 
 
 
-    let scrollableElement = document.body; //document.getElementById('scrollableElement');
+    let scrollableElement = document.body,
+        n = 0;
     const main = document.querySelector('.main');
     const mainList = main.children;
-    let n=0;
 
+
+
+
+    $('.header__logo').click((e)=>{
+        e.preventDefault();
+        if(n!==0){
+            mainList[n].classList.remove('opened')
+            for(let j=0;j<3;j++){
+                if(mainList[j].classList.contains('hidden')) mainList[j].classList.remove('hidden');
+            }
+
+            n=0;
+            setTimeout(function(){mainList[n].classList.add('opened');},500)
+            $(".button__down").fadeIn();
+        }
+
+
+
+    })
 
     function animationDown(){
         if(n!==3){
@@ -56,13 +76,13 @@ $(function() {
                 mainList[n].classList.add('hidden');
 
             n++;
-            console.log(n)
             setTimeout(function(){mainList[n].classList.add('opened');},500)
 
             if(mainList[n].classList.contains('hidden')) mainList[n].classList.add('hidden');
             if(n!==3) $(".button__down").fadeIn();
             else{
                 $(".button__down").fadeOut(400);
+                $(".footer").fadeIn(1000)
             }
         }
 
@@ -72,7 +92,8 @@ $(function() {
 
     function animationUp(){
         if(n!==0){
-            $(".button__down").fadeIn();
+            $(".footer").fadeOut()
+            $(".button__down").fadeIn(1000);
             mainList[n].classList.remove('opened');
             n--;
         }
@@ -95,6 +116,7 @@ $(function() {
 
 
     function checkScrollDirection(event) {
+
             if (checkScrollDirectionIsUp(event)) {
                 console.log('UP');
                 animationUp(n);
@@ -110,7 +132,7 @@ $(function() {
                     scrollableElement.addEventListener('wheel', checkScrollDirection);
                 },600)
             }
-    }
+        }
 
     function checkScrollDirectionIsUp(event) {
         if (event.wheelDelta) {
@@ -123,11 +145,12 @@ $(function() {
 
 
     mainList[n].classList.add('opened');
-    console.log(mainList)
-    $(".button__down").click(()=>{
+
+
+    $(".button__down").click((e)=>{
+        e.preventDefault();
         animationDown();
     })
-
 
 
 
