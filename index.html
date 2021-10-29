@@ -2,13 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Проектирование, прототипирование и производство. +7(900) 135-66-00">
+  <meta name="keywords" content="Протомастер, Protomaster, Прототипирование, Производство, Проектирование, Спроектировать, Прототип дизайна">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Protomaster-5</title>
+  <meta name="google-site-verification" content="HuMOCEq7EtPh8spOksKpYj2M8ci2rAQ5rGk8IXOmh1A" />
+  <meta name="yandex-verification" content="832dfdd059d46211" />
+  
+
+
+
+  <title>Protomaster</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link type="image/x-icon" href="images/favicon.ico" rel="shortcut icon">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/playerjs.js" type="text/javascript" async></script>
+
+  <script>
+    function PlayerjsAsync(){
+      let player = new Playerjs({id:"player", file:"media/production.mp4", poster:"images/promo.jpg"});
+    }
+  </script>
 
 
   <style>
@@ -45,7 +62,10 @@
   </symbol>
 </svg>
 
-
+<!--BUTTON-DOWN-->
+<div class="button__down _anim _anim-no-hide">
+  <a href="#" class="down-link"></a>
+</div>
 
 
 <!--MODAl-->
@@ -54,22 +74,21 @@
   <div class="popup js-popup">
     <div class="popup__content">
       <div class="popup__content-title">
-        <h2>Оставьте заявку</h2>
       </div>
       <form class="form"  action="mail.php" method="POST" id="form">
         <div class="form__control">
           <label for="username">Имя</label>
-          <input type="text" placeholder="Ваше имя" id="username" name="name">
+          <input type="text" placeholder="" id="username" name="name">
           <small>Error Message</small>
         </div>
         <div class="form__control">
           <label for="mail">Адрес электронной почты</label>
-          <input type="text" placeholder="Ваш адрес электронной почты" id="mail" name="mail">
+          <input type="text" placeholder="" id="mail" name="mail">
           <small>Error Message</small>
         </div>
         <div class="form__control">
           <label for="comment">Опишите Вашу задачу</label>
-          <textarea rows="3" placeholder="Опишите Вашу задачу" id="comment" name="comment"></textarea>
+          <textarea rows="4" placeholder="" id="comment" name="comment"></textarea>
         </div>
         <button class="submit" type="submit">отправить</button>
       </form>
@@ -78,7 +97,18 @@
     <div class="close__popup js-close-popup">&times;</div>
 
   </div>
+  <div class="modal__success">
+    <span class="success__close">×</span>
+    <img class="success__img" src="/images/done.svg" alt="Success!">
+    <div class="success__title">Спасибо!</div>
+    <div class="success__subtitle">ваша заявка отправлена</div>
+  </div>
 </div>
+
+<!--Modal success-->
+
+
+
 
 <!--Modal button-->
 
@@ -149,6 +179,69 @@
             </div>
           </div>
         </div>
+<!--      Projecting-->
+        <div class="project">
+          <div class="container">
+            <div class="project__wrapper">
+              <div class="project__content">
+                <div class="project__title">
+                  Проектирование
+                </div>
+                <img class="project__content-img" src="images/project-content.png" alt="project-content">
+                <div class="project__info">
+                  После согласования и утверждения технического задания (ТЗ) конструкторский отдел приступает к проектированию изделия. Результатом является создание комплекта конструкторской документации (КД) необходимого для перехода к следующим этапам: прототипированию и серийному производству будущего изделия.
+                </div>
+              </div>
+              <div class="project__img">
+                <img src="images/project.png" alt="project">
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!--      Prototyping-->
+      <div class="prototypes">
+        <div class="container">
+          <div class="project__wrapper prototype">
+            <div class="project__content prototype">
+              <div class="project__title">
+                Прототипирование
+              </div>
+              <div class="project__info">
+                <p>Выбор метода и технологии изготовления прототипа всегда индивидуален и зависит от того, какие свойства будущего продукта будут исследоваться.</p>
+                <p>Для некоторых задач достаточно трехмерной печати, в то время как для других требуется современное высокотехнологичное обрабатывающее оборудование.</p>
+                <p>В любом случае прототип не является чем-то статичным и завершенным. Напротив - он предназначен для того, чтобы получить обратную связь и внести необходимые дополнения и корректировки. Это существенно снижает риск появления ошибок на старте серийного производства.</p>
+              </div>
+            </div>
+            <div class="project__img prototype">
+              <img src="images/prototype.png" alt="project">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="production">
+        <div class="container">
+          <div class="production__wrapper">
+            <div class="production__content">
+              <div class="project__title">
+                Производство
+              </div>
+              <div class="production__info project__info">
+                И вот в результате проведенных исследований, профессионально выполненных опытно-конструкторских работ и организации процесса производства мы получаем законченный, функциональный продукт, полностью отвечающий техническому заданию заказчика.
+                В проекте, представленном здесь в качестве примера, мы постарались реализовать не только те пожелания, которые звучали в начале совместной работы, но и предложили некоторые рациональные дополнения, ставшие неотъемлемой частью изделия.
+                Мы стараемся обеспечивать для наших заказчиков лучший результат и у Вас всегда есть возможность в этом убедиться.
+              </div>
+            </div>
+            <div class="production__media" id="player">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </main>
     <footer class="footer">
 

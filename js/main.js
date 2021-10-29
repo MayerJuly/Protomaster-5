@@ -42,6 +42,96 @@ $(function() {
     },1000)
 
 
+
+    let scrollableElement = document.body; //document.getElementById('scrollableElement');
+    const main = document.querySelector('.main');
+    const mainList = main.children;
+    let n=0;
+
+
+    function animationDown(){
+        if(n!==3){
+            // $(".button__down").fadeOut();
+            mainList[n].classList.remove('opened');
+                mainList[n].classList.add('hidden');
+
+            n++;
+            console.log(n)
+            setTimeout(function(){mainList[n].classList.add('opened');},500)
+
+            if(mainList[n].classList.contains('hidden')) mainList[n].classList.add('hidden');
+            if(n!==3) $(".button__down").fadeIn();
+            else{
+                $(".button__down").fadeOut(400);
+            }
+        }
+
+
+
+    }
+
+    function animationUp(){
+        if(n!==0){
+            $(".button__down").fadeIn();
+            mainList[n].classList.remove('opened');
+            n--;
+        }
+        console.log(n)
+        if (n<0) {
+            n++;
+        }
+
+        setTimeout(function(){mainList[n].classList.add('opened');
+            if(mainList[n].classList.contains('hidden')) mainList[n].classList.remove('hidden');},500)
+
+
+
+    }
+
+
+    scrollableElement.addEventListener('wheel', checkScrollDirection);
+
+
+
+
+    function checkScrollDirection(event) {
+            if (checkScrollDirectionIsUp(event)) {
+                console.log('UP');
+                animationUp(n);
+                scrollableElement.removeEventListener("wheel", checkScrollDirection);
+                setTimeout(function (){
+                    scrollableElement.addEventListener('wheel', checkScrollDirection);
+                },600)
+            } else {
+                console.log('DOWN');
+                animationDown(n);
+                scrollableElement.removeEventListener("wheel", checkScrollDirection);
+                setTimeout(function (){
+                    scrollableElement.addEventListener('wheel', checkScrollDirection);
+                },600)
+            }
+    }
+
+    function checkScrollDirectionIsUp(event) {
+        if (event.wheelDelta) {
+            return event.wheelDelta > 0;
+        }
+        return event.deltaY < 0;
+    }
+
+
+
+
+    mainList[n].classList.add('opened');
+    console.log(mainList)
+    $(".button__down").click(()=>{
+        animationDown();
+    })
+
+
+
+
+
     //    Modal
 
     const close = $('.js-close-popup');
@@ -49,7 +139,7 @@ $(function() {
     const popup = $('.js-popup');
     const form = document.getElementById('form');
     const username = document.getElementById('username');
-    const mail = document.getElementById('phone');
+    const mail = document.getElementById('mail');
 
 
     function closeModal(close,object) {
@@ -88,7 +178,7 @@ $('.toForm').click(function (e){
         let msg = $('#form').serialize();
         //    get values from inputs
         const usernameValue = username.value.trim();
-        const mailValue = phone.value.trim();
+        const mailValue = mail.value.trim();
 
         let error = false;
 
@@ -101,13 +191,13 @@ $('.toForm').click(function (e){
         }
 
 
-        if(phoneValue === ''){
-            setErrorFor(phone, 'Введите ваш номер телефона');
+        if(mailValue === ''){
+            setErrorFor(mail, 'Введите Ваш адрес электронной почты');
             error = true;
 
         }
         else{
-            setSuccessFor(phone);
+            setSuccessFor(mail);
         }
 
         if(!error){
@@ -116,10 +206,15 @@ $('.toForm').click(function (e){
                 url: "../mail.php", //Change
                 data: msg
             }).done(function() {
-                alert("Сообщение отправлено");
+                popup.css('display','none');
+                $(".modal__success").fadeIn();
+                $(".success__close").click(()=>{
+                    $(".modal__success").fadeOut();
+                    popup.css('display','flex')
+                })
                 setTimeout(function() {
-                    form.reset()
-                    document.location.replace("index.php");
+
+                    form.reset();
                     form.trigger("reset");
                 }, 1000);
             });
@@ -142,6 +237,7 @@ $('.toForm').click(function (e){
         const formControl = input.parentElement // .form__control
         formControl.classList.remove('error')
     }
+
 
 
 
