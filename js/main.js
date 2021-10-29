@@ -118,7 +118,6 @@ $(function() {
     }
 
    window.addEventListener('resize', function(){
-        console.log(document.documentElement.clientWidth)
         if(document.documentElement.clientWidth>1130){
             scrollableElement.addEventListener('wheel', checkScrollDirection);
         }
@@ -135,14 +134,12 @@ $(function() {
     function checkScrollDirection(event) {
 
             if (checkScrollDirectionIsUp(event)) {
-                console.log('UP');
                 animationUp(n);
                 scrollableElement.removeEventListener("wheel", checkScrollDirection);
                 setTimeout(function (){
                     scrollableElement.addEventListener('wheel', checkScrollDirection);
                 },600)
             } else {
-                console.log('DOWN');
                 animationDown(n);
                 scrollableElement.removeEventListener("wheel", checkScrollDirection);
                 setTimeout(function (){
@@ -166,6 +163,7 @@ $(function() {
 
     $(".button__down").click((e)=>{
         e.preventDefault();
+        $('body,html').animate({scrollTop: 0}, 400);
         animationDown();
     })
 
