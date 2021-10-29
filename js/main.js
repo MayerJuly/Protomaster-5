@@ -55,6 +55,7 @@ $(function() {
     $('.header__logo').click((e)=>{
         e.preventDefault();
         if(n!==0){
+            $(".footer").fadeOut(1000)
             mainList[n].classList.remove('opened')
             for(let j=0;j<3;j++){
                 if(mainList[j].classList.contains('hidden')) mainList[j].classList.remove('hidden');
