@@ -19,7 +19,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <script src="js/playerjs.js" type="text/javascript" async></script>
+
+  <script id="pjs" src="js/playerjs.js" type="text/javascript" async></script>
+  <script>
+
+      let head= document.getElementsByTagName('head')[0];
+      let script= document.createElement('script');
+      script.type= 'text/javascript';
+      if(document.documentElement.clientWidth<500){
+        script.src= 'js/playerjsmob.js';
+      }
+      else{
+        script.src= 'js/playerjs.js';
+      }
+      head.appendChild(script);
+  </script>
+
 
   <script>
     function PlayerjsAsync(){

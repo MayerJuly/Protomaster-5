@@ -168,6 +168,13 @@ $(function() {
     })
 
 
+    if(document.documentElement.clientWidth<500){
+        document.getElementById('pjs').src= 'js/playerjsmob.js'
+    }
+
+
+
+
 
 
     //    Modal
